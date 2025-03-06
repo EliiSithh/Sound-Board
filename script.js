@@ -1,26 +1,24 @@
-const sounds = ['applause ', 'boo', 'gasp', 'tada', 'victory', 'wrong'];
+//Create an array of sounds
+const sounds = ['applause','boo','gasp', 'tada', 'victory', 'wrong'];
 
-sounds.forEach((sound) => {
+// For each sound, create a button, add a class 'btn', update the text, append to DOM
+sounds.forEach((sound) => { 
+    // Create a button
+    const btn = document. createElement ('button');
+ 
+// Add a class of 'btn' to the button element
+btn.classList.add('btn');
 
-    const btn = document.createElement('button');
-
-    btn.classList.add('btn');
-
+    // Set the button label text to be the same as the string value in the sounds array
     btn.innerText = sound;
 
+    // Add an event listener to this button 
+    btn.addEventListener('click', () => {
+    document.getElementById(sound).play();
+    })
+
+    // Add the button to the DOM
     document.getElementById('buttons').appendChild(btn);
 });
 
-btn.addEventListener('click', () => {
     
-    document.getElementById(sound).play();
-});
-
-function stopSounds() {
-    sounds.forEach((sound) => {
-        const song = document.getElementById(sound);
-
-        song.pause();
-        song.currentTime = 0;
-    });
-}
